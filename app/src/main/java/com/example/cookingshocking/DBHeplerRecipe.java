@@ -62,4 +62,14 @@ public class DBHeplerRecipe extends SQLiteOpenHelper {
         return data;
 
     }
+
+    public Cursor getId(String name, String description, String ingredient, String time){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT " + COLUMN_ID + " FROM "+ TABLE_NAME + "WHERE "
+                + COLUMN_NAME + " = " + name + " AND " + COLUMN_DES + " = " + description +
+                " AND " + COLUMN_ING + " = " +ingredient + " AND " + COLUMN_TIME + " = "
+                + time + "''";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
 }
