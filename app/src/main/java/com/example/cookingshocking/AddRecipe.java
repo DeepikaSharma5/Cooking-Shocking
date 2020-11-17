@@ -65,6 +65,8 @@ public class AddRecipe extends AppCompatActivity {
         boolean  insertData = helper.addRecipe(name,description,time,ingredient);
         if (insertData){
             Toast.makeText(getApplicationContext(), "Recipe added successfully ", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddRecipe.this,Home.class);
+            startActivity(intent);
         }else{
             Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
         }

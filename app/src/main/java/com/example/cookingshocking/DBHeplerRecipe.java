@@ -2,6 +2,7 @@ package com.example.cookingshocking;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -51,6 +52,14 @@ public class DBHeplerRecipe extends SQLiteOpenHelper {
         } else {
             return true;
         }
+
+    }
+
+    public Cursor getRecipe(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM "+ TABLE_NAME;
+        Cursor data = db.rawQuery(query,null);
+        return data;
 
     }
 }
